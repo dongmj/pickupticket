@@ -1,0 +1,170 @@
+﻿
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="utf-8" />
+<meta name="robots" content="all" />
+<meta name="author" content=" " />
+<meta name="Copyright" content="  " />
+<meta name="description" content="{TAG_59447_TAG}" />
+<meta name="keywords" content="{TAG_59446_TAG}" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<link href="../common/css/2011page.css" type="text/css" rel="stylesheet" rev="stylesheet" media="all" />
+<title>团队预约</title>
+<script language="javascript" src="../common/js/global.js?1397836939339"></script>
+<script language="javascript" src="../common/js/common.js?1397836939339"></script>
+<script language="javascript" src="../common/js/calendar.js?1397836939339"></script>
+<script language="javascript" src="../common/js/validator.js?1397836939339"></script>
+<script language="javascript" src="../common/js/xml_ajax.js?1397836939339"></script>
+<script language="javascript">
+	var configIdArray = ['0'
+		
+		, '1539'
+		
+	];
+	
+	function resetAllBook() {
+		for (var i = 1; i < configIdArray.length; i++) {
+			var id = configIdArray[i];
+			var dateBook = document.getElementById('dateBook' + id);
+			if (null != dateBook) {
+				dateBook.className = null;
+			}
+			var leftBook = document.getElementById('leftBook' + id);
+			var rightBook = document.getElementById('rightBook' + id);
+			if (null != leftBook && null != rightBook) {
+				leftBook.style.display = "none";
+				rightBook.style.display = "none";
+			}
+		}
+	}
+	
+	function dateBookSelect(id) {
+		resetAllBook();
+		var dateBook = document.getElementById('dateBook' + id);
+		if (null != dateBook) {
+			dateBook.className = "this";
+		}
+		var leftBook = document.getElementById('leftBook' + id);
+		var rightBook = document.getElementById('rightBook' + id);
+		if (null != leftBook && null != rightBook) {
+			leftBook.style.display = "block";
+			rightBook.style.display = "block";
+		}
+	}
+	
+	var inBooking = false
+	function bookTicket(bookDate, startTime, endTime) {
+		if (false == this.inBooking) {
+			inBooking = true;
+			var url = "goInsertGroupTicket.action?d=" + bookDate + "&ts=" + startTime + "&te=" + endTime+"&groupTicket.isRecordVisitorInfo=true";
+			locationHref(url);
+			inBooking = false;
+		}
+	}
+
+	window.addEventListener("load", function() {
+		if (configIdArray.length > 1)
+			dateBookSelect(configIdArray[1]);
+	}, false);
+	
+	
+</script>
+</head>
+<body>
+<div class=" width980 banner"> <img src="../common/images/banner.jpg" width="980" height="150" /></div>
+<div class=" width980 nav"> <img src="../common/images/nav.gif" border="0" usemap="#Map" />
+<map name="Map" id="Map">
+  <area shape="rect" coords="39,7,159,35" href="http://cpc.people.com.cn/GB/143527/143528/10412112.html" title="纪念堂概况" />
+  <area shape="rect" coords="187,4,286,35" href="http://cpc.people.com.cn/GB/143527/143528/10430860.html" title="瞻仰须知" />
+  <area shape="rect" coords="312,6,401,36" href="http://cpc.people.com.cn/GB/143527/143544/10536428.html" title="生平年表" />
+  <area shape="rect" coords="434,6,528,35" href="http://cpc.people.com.cn/GB/143527/143528/index.html#yeji" title="伟人业绩" />
+  <area shape="rect" coords="560,5,658,37" href="http://cpc.people.com.cn/GB/143527/143528/10430918.html" title="图片掠影" />
+  <area shape="rect" coords="681,5,775,35" href="http://cpc.people.com.cn/GB/143527/index.html" title="返回首页" />
+  <area shape="rect" coords="797,5,929,34" href="/jnt/web" title="团队预约瞻仰" />  
+</map>
+</div>
+<div class="p1_content">
+  <h1><img src="../common/images/tit1.gif" width="980" height="25" /></h1>
+  <div class="p1_a"> <b>欢迎&nbsp;&nbsp;蒋秋来&nbsp;&nbsp;进入预约系统</b>[<a href="javascript:logout(' 确定退出系统? ');">退出</a>] </div>
+  <div class="p1_b">
+    <ul class="p1_tab">
+      <li onclick="javascript:locationHref('../notice/goViewNotice.action');">系统公告</li>
+      <li class="this"onclick="javascript:locationHref('../ticket/queryGroupTicketBook.action');">团队预约</li>
+      <li onclick="javascript:locationHref('../ticket/myGroupTicket.action');">查看预约</li>
+      <li onclick="javascript:locationHref('../user/goViewUser.action');">用户信息</li>
+    </ul>
+    <div class="p1_c">
+      <div class="t01">
+        <ul class="p1_tab01">
+		  
+          <li id='dateBook1539' onclick="dateBookSelect('1539')">05-03 星期六</li>
+		  
+        </ul>
+        <div class="center p1_01" style="min-height:8px; height:8px;"></div>
+		
+			<dl style="display:none;" id='leftBook1539' class="p1_tab02">
+				
+					
+						
+							<dt>
+								
+									<img src="../common/images/t1_ym_02.gif" />
+								
+								<i>06:00</i> <em>可预约 <strong>-71</strong> 人 已预约 <strong>4071</strong> 人</em> 
+							</dt>
+						
+						
+					
+				
+					
+				
+					
+						
+						
+							<dd>
+								
+									<img src="../common/images/t1_ym_02.gif" />
+											  
+								<i>07:00</i> <em>可预约 <strong>-44</strong> 人 已预约 <strong>1044</strong> 人</em> 
+							</dd>
+						
+					
+				
+			</dl>
+			<dl style="display:none;" id='rightBook1539' class="p1_tab02">
+				
+					
+				
+					
+						
+							<dt>
+								
+									<img src="../common/images/t1_ym_02.gif" />
+											  
+								<i>06:30</i> <em>可预约 <strong>-70</strong> 人 已预约 <strong>3070</strong> 人</em> 
+							</dt>
+						
+						
+					
+				
+					
+				
+			</dl>
+        
+      </div>
+    </div>
+    <div class="clear"><img src="../common/images/bt1.gif" width="935" height="1" /></div>
+  </div>
+</div>
+</div>
+<div class="copyright">人 民 网 版 权 所 有 ，未 经 书 面 授 权 禁 止 使 用<br />
+  Copyright &copy; 1997-2013 by www.people.com.cn. all rights reserved </div>
+</body>
+</html>

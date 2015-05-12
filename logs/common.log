@@ -1,0 +1,8 @@
+2015-05-10 09:34:50  [ AWT-EventQueue-0:0 ] - [ INFO ]  doPost parameters: {password=830418, email=1043339277@qq.com}
+2015-05-10 09:34:54  [ AWT-EventQueue-0:4230 ] - [ INFO ]  post http://mzxjnt.people.com.cn/jnt/web/user/login.action
+result: 302
+2015-05-10 09:34:54  [ AWT-EventQueue-0:4230 ] - [ INFO ]  org.apache.commons.httpclient.AutoCloseInputStream@18d86297
+2015-05-10 09:34:54  [ AWT-EventQueue-0:4239 ] - [ INFO ]  [JSESSIONID=16E8B210BEA4596EDC8F68B61A632E50]
+2015-05-10 09:34:54  [ AWT-EventQueue-0:4362 ] - [ INFO ]  get http://mzxjnt.people.com.cn/jnt/web/ticket/queryGroupTicketBook.action
+result: 200
+2015-05-10 09:34:54  [ AWT-EventQueue-0:4362 ] - [ INFO ]  org.apache.commons.httpclient.AutoCloseInputStream@5c1ff810
