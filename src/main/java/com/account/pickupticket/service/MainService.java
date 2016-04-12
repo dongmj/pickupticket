@@ -46,7 +46,8 @@ public class MainService {
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("email", loginEmail);
 		params.put("password", loginPwd);
-		HttpUtils.getInstance().doPost(loginURL, params, StringUtils.EMPTY);
+		String result = HttpUtils.getInstance().doPost(loginURL, params, StringUtils.EMPTY);
+		System.out.println(result);
 		Cookie[] cookies = HttpUtils.getInstance().getClientInstance().getState().getCookies();
 		if(ArrayUtils.isEmpty(cookies)) {
 			_log.warn("login fail at " + TimeUtils.getCurrentDateWithCommonFormat());

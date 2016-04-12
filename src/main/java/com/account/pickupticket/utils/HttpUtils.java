@@ -5,10 +5,12 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.apache.commons.collections4.MapUtils;
+import org.apache.commons.httpclient.Cookie;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -43,7 +45,12 @@ public class HttpUtils {
 		try {
 			int result = _httpclient.executeMethod(post);
 			_log.info("post " + url + "\nresult: " + result);
-			_log.info(post.getResponseBodyAsStream());
+			if(result == 302) {
+				String locationUrl=post.getResponseHeader("Location").getValue();
+				String co = this.convertCookie2String(_httpclient.getState().getCookies());
+				return doGet(locationUrl, co);
+			}
+			_log.info(post.getResponseBodyAsString());
 			return post.getResponseBodyAsString();
 		} catch (HttpException e) {
 			_log.error("invoke post fail.", e);
@@ -62,7 +69,7 @@ public class HttpUtils {
 		try {
 			int result = _httpclient.executeMethod(get);
 			_log.info("get " + url + "\nresult: " + result);
-			_log.info(get.getResponseBodyAsStream());
+			_log.info(get.getResponseBodyAsString());
 			return get.getResponseBodyAsString();
 		} catch (HttpException e) {
 			_log.error("invoke get fail.", e);
@@ -70,5 +77,16 @@ public class HttpUtils {
 			_log.error("invoke get fail.", e);
 		}
 		return StringUtils.EMPTY;
+	}
+	
+	private static final String COOKIE_SEPERATOR = ";";
+	public String convertCookie2String(Cookie[] cookies) {
+		String result = "";
+		if(ArrayUtils.isNotEmpty(cookies)) {
+			for(Cookie c : cookies) {
+				result += c.toString() + COOKIE_SEPERATOR;
+			}
+		}
+		return result;
 	}
 }
